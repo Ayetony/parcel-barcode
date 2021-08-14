@@ -49,11 +49,13 @@ public class BarcodeUtils {
         // 精细度
         final int dpi = 203;
         // module宽度
-        final double moduleWidth = UnitConv.in2mm(3.0f / dpi);
+        final double moduleWidth = UnitConv.in2mm(2.0f / dpi);
         // 配置对象
         bean.setModuleWidth(moduleWidth);
-        bean.setBarHeight(20);
-        bean.setMsgPosition(HumanReadablePlacement.HRP_TOP);
+        bean.setBarHeight(15);
+        bean.setFontName("New Roman");
+        bean.setFontSize(3.0);
+        bean.setMsgPosition(HumanReadablePlacement.HRP_BOTTOM);
         String format = "image/png";
         try {
             // 输出到流
@@ -69,8 +71,8 @@ public class BarcodeUtils {
     }
 
     public static void main(String[] args) {
-        String msg = "503811196902765";
-        String path = "src/main/resources/static/pages/images/barcode.png";
+        String msg = "22336723903828";
+        String path = "src//barcode.png";
         generateFile(msg, path);
     }
 }

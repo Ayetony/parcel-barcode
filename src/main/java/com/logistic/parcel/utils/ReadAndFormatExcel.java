@@ -16,7 +16,7 @@ public class ReadAndFormatExcel {
             XSSFWorkbook wb = (XSSFWorkbook) XSSFWorkbookFactory.create(inp);
             LinkedList<String> linkedList = new LinkedList<>();
             XSSFSheet sheet = wb.getSheetAt(0);
-            sheet.getColumnHelper().setColWidth(23,43);
+            sheet.getColumnHelper().setColWidth(23,40);
             int rows = sheet.getPhysicalNumberOfRows();
             for (int i = 1; i < rows ; i++) {
                 XSSFRow row = sheet.getRow(i);
@@ -68,7 +68,7 @@ public class ReadAndFormatExcel {
             anchor.setCol1(23);
             anchor.setRow1(i+1);
             Picture pict = drawing.createPicture(anchor, pictureIdx);
-            pict.resize(1.0,0.9);
+            pict.resize(1.0);
         }
         //save workbook
         try (OutputStream fileOut = new FileOutputStream(proPath)) {
