@@ -47,15 +47,14 @@ public class ReadAndFormatExcel {
             e.printStackTrace();
         }
         for (int i = 0; i < linkedList.size(); i++) {
-
             String msg = linkedList.get(i);
-            BarcodeUtils.generateFile(msg, picPath);
+            File picture = BarcodeUtils.generateFile(msg, picPath);
             //add picture data to this workbook.
             InputStream fileInputStream;
             byte[] bytes;
             int pictureIdx = 0;
             try {
-                fileInputStream = new FileInputStream(picPath);
+                fileInputStream = new FileInputStream(picture);
                 bytes  = IOUtils.toByteArray(fileInputStream);
                 pictureIdx = wb.addPicture(bytes, Workbook.PICTURE_TYPE_PNG);
                 fileInputStream.close();

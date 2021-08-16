@@ -52,10 +52,11 @@ public class BarcodeUtils {
         final double moduleWidth = UnitConv.in2mm(2.0f / dpi);
         // 配置对象
         bean.setModuleWidth(moduleWidth);
-        bean.setBarHeight(15);
+        bean.setBarHeight(14.5);
         bean.setFontName("New Roman");
         bean.setFontSize(3.0);
         bean.setMsgPosition(HumanReadablePlacement.HRP_BOTTOM);
+        bean.setHeight(20.0);
         String format = "image/png";
         try {
             // 输出到流
