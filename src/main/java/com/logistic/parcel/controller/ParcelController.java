@@ -45,19 +45,6 @@ public class ParcelController {
 
     @RequestMapping("hello")
     public String index() {
-        Long timeOfNow = new Date().getTime();
-        if (session.isNew()) {
-            System.out.println("JSESSION" + session.getId());
-            System.out.println(servletRequest.getRemoteAddr());
-            map.put(session.getId(), session.getLastAccessedTime());
-        } else {
-            if (timeOfNow - map.get(session.getId()) > 10000) {
-                session.invalidate();
-                System.out.println("高频访问");
-                return "/pages/errorPage.html";
-            }
-        }
-
         System.out.println("上一次访问时间 = " + session.getLastAccessedTime());
         return "index";
     }
